@@ -1,19 +1,21 @@
 # Ruby on Rails 7
-Good Programmer
+### Good Programmer
 
-Первый урок начало
-Создание приложения Rails
+### 1 урок начало
+# Создание приложения Rails
 
-sqlite3 перемещяем в группу development и тест
-создаем новую группу production в ней добавляем gem 'pg'
+Cоздаем новую группу `production` в ней добавляем `gem 'pg'`
+`sqlite3` перемещяем в группу `development` и тест
 
-Локально задаем параметры для работы без production
+Локально задаем параметры для работы без `production`
+```
 bundle config set --local without 'production'
-
-создается файл .bundle/config внутри строчка
+```
+Cоздается файл `.bundle/config` внутри строчка
+```
 ---
 BUNDLE_WITHOUT: "production"
-
-после обновляем gem командой
+```
+После обновляем gem командой
 bundle install
 не будет зайдествован gem 'pg'
