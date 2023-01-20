@@ -22,6 +22,13 @@ class QuestionsController < ApplicationController
     #debugger
     @question = Question.find(params[:id])
     @question.destroy
-  
+  end
+
+  def show
+    @questions = Question.find(params[:id])
+  end
+
+  def index
+    @questions = Question.all
   end
 end
