@@ -5,6 +5,7 @@
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
+    <%= " | USER_ID: #{question.user_id}" %>
   </div>
 
   <div>
