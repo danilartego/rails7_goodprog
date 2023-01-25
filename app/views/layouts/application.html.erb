@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsGoodprog</title>
+    <title>GOOD PROG</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,18 +14,17 @@
     <div class="wrapper">
 
       <div class="navbar">
-        <p class="title-sm text-bold"><%= link_to "Good prog", root_path%> </p>
+        <p class="title-sm text-bold"><%= link_to "GOOD PROG", root_path %> </p>
         <div>
           <% if current_user.present?%>
-            <%= content_tag 'span', "#{current_user.nickname}", class: 'mr-sm' %>
-            <%= button_to 'Выйти', session_path, method: :delete %>
+            <%= link_to "#{current_user.nickname}", edit_user_path(current_user), class: 'mr-sm' %>
+            <%#= content_tag 'span', "#{current_user.nickname}", class: 'mr-sm' %>
+            <%= button_to 'Выйти', session_path, method: :delete, class: 'button button-yellow mr-sm' %>
           <% else %>
             <%= link_to 'Регистрация', new_user_path, class: 'button button-yellow mr-sm' %>
             <%= link_to 'Вход', new_session_path, class: 'button button-yellow mr-sm' %>
           <% end%>
-
         </div>
-
       </div>
 
       <% if flash[:notice].present? %>

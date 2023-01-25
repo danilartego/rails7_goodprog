@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="title">Присоеденяйся и спрашивай!</h2>
+  <h2 class="title"> Редактирование пользователя </h2>
 
   <% if @user.errors.any? %>
     <div class="mt">
@@ -8,7 +8,8 @@
       <% end %>
     </div>
   <% end %>
-  
+
+
   <div class="mt">
     <%= form_with model: @user, data: { turbo: false } do |form| %>
 
@@ -18,8 +19,7 @@
       <p class="mt"> <%= form.label :nickname, "Ник на сайте" %> </p>
       <p> <%= form.text_field :nickname, class: "form-text-field" %> </p>
 
-      <p class="mt"> <%= form.label :email %> </p>
-      <p> <%= form.text_field :email, class: "form-text-field" %> </p>
+      <p class="mt-lg text-sm"> Если не хотите менять пароль - оставте эти поля пустыми </p>
 
       <p class="mt"> <%= form.label :password, 'Введите пароль' %> </p>
       <p> <%= form.password_field :password, class: "form-text-field" %> </p>
@@ -27,7 +27,15 @@
       <p class="mt"> <%= form.label :password_confirmation, "Пароль еще раз" %> </p>
       <p> <%= form.password_field :password_confirmation, class: "form-text-field" %> </p>
 
-      <p class="mt-lg"> <%= form.submit "Зарегистрироваться", class: "button button-main" %> </p>
+      <p class="mt-lg"> 
+        <%= form.submit "Сохранить", class: "button button-main" %> 
+        <span class="text-sm"> или <%= link_to "Вернуться", :back, class: "button button-main" %></span>
+        <span style="float: right">
+          <%= button_to "Удалить профиль", user_path(@user), method: :delete,
+            form: {data: {turbo_confirm: "Вы точно хотите удалить свой профиль?"}},
+            class: "button button-main"%>
+        </span>
+      </p>
 
     <% end %>
   </div>
